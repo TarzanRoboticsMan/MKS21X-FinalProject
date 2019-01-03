@@ -1,2 +1,3 @@
 # MKS21X-FinalProject
-Final Project (WordLadder) with Isabella Rocha
+Final Project Name: WordLadder
+Group Name: Socha Word Olympic Team
