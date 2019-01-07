@@ -19,7 +19,8 @@ public class Dictionary{
       System.exit(1);
     }
     tableOfContents = new int[26]; //Creating a list of the indexes at which the a words start, b words, c words, etx. to quickly access words
-    int x = 0;
+    int x = 1;
+    tableOfContents[0] = 0;
     for(int idx = 1; idx < wordList.size(); idx++) {
       if(wordList.get(idx).charAt(0) != (wordList.get(idx - 1).charAt(0))){
         tableOfContents[x] = idx;
