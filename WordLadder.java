@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class WordLadder{
   public static void main(String[]args){
-    String filename = "prototypeDict.txt";
+    String filename = "wordList.txt";
     try{
       File f = new File(filename);
       Scanner dict = new Scanner(f);
