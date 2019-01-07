@@ -28,4 +28,13 @@ public class Dictionary{
       }
     }
   }
+  public boolean isWord(String value){
+    value = value.toLowerCase();
+    for (int idx = value.charAt(0) - 97; idx < tableOfContents[value.charAt(0) - 96]; idx ++) { //Loops through wordList but only between the words that share the same first letter
+      if (wordList.get(idx) == value) {
+        return true;
+      }
+    }
+    return false;
+  }
 }
