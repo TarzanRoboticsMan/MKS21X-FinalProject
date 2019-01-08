@@ -23,19 +23,28 @@ public class Dictionary{
     tableOfContents[0] = 0;
     for(int idx = 1; idx < wordList.size(); idx++) {
       if(wordList.get(idx).charAt(0) != (wordList.get(idx - 1).charAt(0))){
-        tableOfContents[x] = idx + 1;
+        tableOfContents[x] = idx;
         x++;
       }
     }
   }
   public boolean isWord(String value){
     value = value.toLowerCase();
-    for (int idx = tableOfContents[value.charAt(0) - 97]; idx < tableOfContents[value.charAt(0) - 96]; idx ++) { //Loops through wordList but only between the words that share the same first letter
-      if (wordList.get(idx).equals(value)) {
-        return true;
+    if (value.charAt(0) != 'z') {
+      for (int idx = tableOfContents[value.charAt(0) - 97]; idx < tableOfContents[value.charAt(0) - 96]; idx ++) { //Loops through wordList but only between the words that share the same first letter
+        if (wordList.get(idx).equals(value)) {
+          return true;
+        }
       }
+      return false;
+    } else {
+      for (int idx = tableOfContents[value.charAt(0) - 97]; idx < wordList.size(); idx ++) {
+        if (wordList.get(idx).equals(value)) {
+          return true;
+        }
+      }
+      return false;
     }
-    return false;
   }
   public ArrayList<String> retrieve() { //To access wordList while testing
     return wordList;
@@ -49,11 +58,13 @@ public class Dictionary{
     boolean check2 = dic.isWord("APPLE");
     boolean check3 = dic.isWord("deaedfs");
     boolean check4 = dic.isWord("xylophone");
+    boolean check5 = dic.isWord("zoo");
     System.out.println(dic.retrieve().get(3839));
     System.out.println(check1 + "(Should print true)");
     System.out.println(check2 + "(Should print true)");
     System.out.println(check3 + "(Should print false)");
     System.out.println(check4 + "(Should print true)");
+    System.out.println(check5 + "(Should print true)");
     int xprev = 0; //Following code tests out how many words per letter
     for(int x : dic.tableOfContents){
       System.out.print(x-xprev+" ");
