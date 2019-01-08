@@ -10,8 +10,8 @@ public class WordLadder{
   public ArrayList<Node> ends;
   private Dictionary dic = new Dictionary();
 
-  public ArrayList<Node> oneOff(String val) {
-    ArrayList<Node> output = new ArrayList<Node>();
+  public ArrayList<String> oneOff(String val) {
+    ArrayList<String> output = new ArrayList<String>();
     for (int x = 0; x < val.length(); x++) { //Going through all the possibilities one position at a time
       for (int idx = 97; idx < 123; idx++) { //Switching it to every possible letter
         String begin = val.substring(0, x);
@@ -19,28 +19,17 @@ public class WordLadder{
         String end = val.substring(x + 1);
         val = begin + (char)mid + end; //Creating new word with changed letter
         if (dic.isWord(val)) {
-          Node input = new Node(val);
-          output.add(input); //Adding it to our ArrayList of words that are one away if it is a valid word
+    //      Node input = new Node(val);
+          output.add(val); //Adding it to our ArrayList of words that are one away if it is a valid word
         }
       }
     }
     return output;
   }
-
-
   public static void main(String[]args){
-    String filename = "wordList.txt";
-    try{
-      File f = new File(filename);
-      Scanner dict = new Scanner(f);
-
-      System.out.println(dict.findInLine("Shoes"));
-      System.out.println(dict.findWithinHorizon("Shoes", 0));
-
-    }catch(FileNotFoundException e){
-      System.out.println("File not found: " + filename);
-      //e.printStackTrace();
-      System.exit(1);
-    }
+    WordLadder test = new WordLadder();
+    System.out.println(test.oneOff("apple").toString());
+    System.out.println(test.oneOff("hello").toString());
+    System.out.println(test.oneOff("xylophone").toString());
   }
 }
