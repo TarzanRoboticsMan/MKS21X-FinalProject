@@ -12,14 +12,19 @@ public class WordLadder{
 
   public ArrayList<Node> oneOff(String val) {
     ArrayList<Node> output = new ArrayList<Node>();
-    for (int x = 0; x < val.length(); x++) {
-      for (int idx = 97; idx < 123; idx++) {
+    for (int x = 0; x < val.length(); x++) { //Going through all the possibilities one position at a time
+      for (int idx = 97; idx < 123; idx++) { //Switching it to every possible letter
         String begin = val.substring(0, x);
-        char mid = val.charAt(x) + idx;
+        int mid = val.charAt(x) + idx;
         String end = val.substring(x + 1);
-        val = begin + mid + end;
+        val = begin + (char)mid + end; //Creating new word with changed letter
+        if (dic.isWord(val)) {
+          Node input = new Node(val);
+          output.add(input); //Adding it to our ArrayList of words that are one away if it is a valid word
+        }
       }
     }
+    return output;
   }
 
 
