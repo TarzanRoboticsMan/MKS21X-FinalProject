@@ -54,5 +54,10 @@ public class Dictionary{
     System.out.println(check2 + "(Should print true)");
     System.out.println(check3 + "(Should print false)");
     System.out.println(check4 + "(Should print true)");
+    int xprev = 0; //Following code tests out how many words per letter
+    for(int x : dic.tableOfContents){
+      System.out.print(x-xprev+" ");
+      xprev=x;
+    }
   }
 }

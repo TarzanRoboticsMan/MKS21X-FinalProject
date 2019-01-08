@@ -17,3 +17,9 @@ Izzy, 1/6:
 
 Izzy, 1/7:
   Got a working dictionary class that quickly stores all the words in an ArrayList and then can accurately tell whether or not a word is a real word or not using isWord. I also added a main method for testing to ensure everything works.
+
+Coby, 1/7:
+  Figured out how to use scanner (findWithinHorizon) to search through dictionary, began coding driver to compare times with our homebrew word finding algorithm.
+
+Coby, 1/8:
+  Determined maximum words for one first letter of the dict. It's 7265, for the letter S
