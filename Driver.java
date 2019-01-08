@@ -3,6 +3,18 @@ public class Driver{
 
     if (args[0].equals("testIsWord"){ //for testing speed of isWord methods
       Dictionary dic = new Dictionary();
+      int reps = Integer.parseInt(args[2]);
+
+      if(Integer.parseInt(args[1])==1){
+        for(int x=0;x<reps;x++){
+          dic.isWord("Swamp")
+        }
+      }
+      if(Integer.parseInt(args[1])==2){
+        for(int x=0;x<reps;x++){
+          dic.isWord2("Swamp")
+        }
+      }
     }
 
     if (args[0].equals("dictMisc"){
