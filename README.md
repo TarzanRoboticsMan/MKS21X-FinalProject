@@ -23,3 +23,7 @@ Coby, 1/7:
 
 Coby, 1/8:
   Determined maximum words for one first letter of the dict. It's 7265, for the letter S
+
+
+Izzy, 1/8:
+  Started writing oneOff, Coby helped find and issue with isWord that was throwing it off and helped fix it so that it works with letters that start with z. Wrote oneOff such that it takes in a String right now rather than a Node, wrote a driver to test oneOff also.
