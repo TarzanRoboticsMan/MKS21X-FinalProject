@@ -1,18 +1,17 @@
 public class Driver{
   public static void main(String[]args){
-
     if (args[0].equals("testIsWord")){ //for testing speed of isWord methods
       Dictionary dic = new Dictionary();
       int reps = Integer.parseInt(args[2]);
 
       if(Integer.parseInt(args[1])==1){ //time java Driver testIsWord 1 10000
         for(int x=0;x<reps;x++){
-          dic.isWord("Swwamp");
+          dic.isWord("swamp");
         }
       }
       if(Integer.parseInt(args[1])==2){ //time java Driver testIsWord 2 10000
         for(int x=0;x<reps;x++){
-          dic.isWord2("Swwamp");
+          dic.isWord2("swamp");
         }
       }
     }
