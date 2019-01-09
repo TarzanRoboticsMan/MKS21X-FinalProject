@@ -1,23 +1,23 @@
 public class Driver{
-  public static main(String[]args){
+  public static void main(String[]args){
 
-    if (args[0].equals("testIsWord"){ //for testing speed of isWord methods
+    if (args[0].equals("testIsWord")){ //for testing speed of isWord methods
       Dictionary dic = new Dictionary();
       int reps = Integer.parseInt(args[2]);
 
       if(Integer.parseInt(args[1])==1){
         for(int x=0;x<reps;x++){
-          dic.isWord("Swamp")
+          dic.isWord("Swamp");
         }
       }
       if(Integer.parseInt(args[1])==2){
         for(int x=0;x<reps;x++){
-          dic.isWord2("Swamp")
+          dic.isWord2("Swamp");
         }
       }
     }
 
-    if (args[0].equals("dictMisc"){
+    if (args[0].equals("dictMisc")){
       Dictionary dic = new Dictionary();
       for (int idx = 0; idx < 20; idx++) {
         System.out.println(dic.retrieve().get(idx));
