@@ -6,11 +6,13 @@ import java.util.ArrayList;
 public class Dictionary{
   private ArrayList<String> wordList = new ArrayList<String>();
   private int[] tableOfContents;
+  private Scanner dict; //Her name is Scandra
 
   public Dictionary(){
     try{
       File f = new File("wordList.txt");
       Scanner dict = new Scanner(f);
+      dict = new Scanner(f);
       while (dict.hasNext()) {
         wordList.add(dict.next().toLowerCase()); //Loops through and adds words from dictionary to an ArrayList
       }
@@ -59,5 +61,12 @@ public class Dictionary{
       System.out.print(x-xprev+" ");
       xprev=x;
     }
+  }
+
+  public boolean isWord2(String value){
+    return (null!=dict.findWithinHorizon(value,0));
+  }
+  public ArrayList<String> retrieve() { //To access wordList while testing
+    return wordList;
   }
 }
