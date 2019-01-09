@@ -22,4 +22,7 @@ Coby, 1/7:
   Figured out how to use scanner (findWithinHorizon) to search through dictionary, began coding driver to compare times with our homebrew word finding algorithm.
 
 Coby, 1/8:
-  Determined maximum words for one first letter of the dict. It's 7265, for the letter S
+  Determined maximum words for one first letter of the dict. It's 7265, for the letter S. Continued working on driver, using terminal input to test all of our different things we need to test. Began changing oneOff to return nodes instead of strings.
+
+Coby, 1/9
+  Finished driver! Determined that the findWithinHorizon driver is significantly faster, by a factor of 2 both for the word "swamp" (near end of largest letter category), and for the word "sswamp" (not in the dictionary). 
