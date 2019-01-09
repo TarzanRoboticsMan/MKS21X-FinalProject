@@ -5,14 +5,14 @@ public class Driver{
       Dictionary dic = new Dictionary();
       int reps = Integer.parseInt(args[2]);
 
-      if(Integer.parseInt(args[1])==1){
+      if(Integer.parseInt(args[1])==1){ //time java Driver testIsWord 1 10000
         for(int x=0;x<reps;x++){
-          dic.isWord("Swamp");
+          dic.isWord("Swwamp");
         }
       }
-      if(Integer.parseInt(args[1])==2){
+      if(Integer.parseInt(args[1])==2){ //time java Driver testIsWord 2 10000
         for(int x=0;x<reps;x++){
-          dic.isWord2("Swamp");
+          dic.isWord2("Swwamp");
         }
       }
     }
@@ -32,10 +32,10 @@ public class Driver{
       System.out.println(check3 + "(Should print false)");
       System.out.println(check4 + "(Should print true)");
       int xprev = 0; //Following code tests out how many words per letter
-      for(int x : dic.tableOfContents){
+      /*for(int x : dic.tableOfContents){
         System.out.print(x-xprev+" ");
         xprev=x;
-      }
+      }*/ //This chunk of code must be in dict class
     }
   }
 }
