@@ -25,4 +25,13 @@ Coby, 1/8:
   Determined maximum words for one first letter of the dict. It's 7265, for the letter S. Continued working on driver, using terminal input to test all of our different things we need to test. Began changing oneOff to return nodes instead of strings.
 
 Coby, 1/9
-  Finished driver! Determined that the findWithinHorizon driver is significantly faster, by a factor of 2 both for the word "swamp" (near end of largest letter category), and for the word "sswamp" (not in the dictionary). 
+  Finished driver! Determined that the findWithinHorizon driver is significantly faster, by a factor of 2 both for the word "swamp" (near end of largest letter category), and for the word "sswamp" (not in the dictionary).
+
+Coby, 1/10
+  Realized how idiotic I am: left a constructor for dict in Dictionary constructor when I made the private dict field for isWord2. Because of this, java always thought I was referencing the local-to-method object and never assigned dict the field, thus my nullPointerException.
+  Retested times.
+  Our isWord:
+  1k - 0.6s   10k - 1.0s   100k - 5.5s  1M - 48.4s
+  isWord2:
+  1k - 0.6s   10k - 0.6s   100k - 0.6s  1M - 0.7s   
+  Further;    10M - 1.4s   100M - 7.4s  1B - 69.4s

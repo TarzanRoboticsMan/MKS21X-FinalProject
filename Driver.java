@@ -20,20 +20,25 @@ public class Driver{
       for (int idx = 0; idx < 20; idx++) {
         System.out.println(dic.retrieve().get(idx));
       }
-      boolean check1 = dic.isWord("apple");
-      boolean check2 = dic.isWord("APPLE");
-      boolean check3 = dic.isWord("deaedfs");
-      boolean check4 = dic.isWord("xylophone");
-      System.out.println(dic.retrieve().get(3839));
-      System.out.println(check1 + "(Should print true)");
-      System.out.println(check2 + "(Should print true)");
-      System.out.println(check3 + "(Should print false)");
-      System.out.println(check4 + "(Should print true)");
-      int xprev = 0; //Following code tests out how many words per letter
-      /*for(int x : dic.tableOfContents){
-        System.out.print(x-xprev+" ");
-        xprev=x;
-      }*/ //This chunk of code must be in dict class
+      if(Integer.parseInt(args[1])==1){
+        System.out.println(dic.retrieve().get(3839));
+        System.out.println(dic.isWord("apple") + "(Should print true)");
+        System.out.println(dic.isWord("APPLE") + "(Should print true)");
+        System.out.println(dic.isWord("deaedfs") + "(Should print false)");
+        System.out.println(dic.isWord("xylophone") + "(Should print true)");
+        int xprev = 0; //Following code tests out how many words per letter
+        /*for(int x : dic.tableOfContents){
+          System.out.print(x-xprev+" ");
+          xprev=x;
+        }*/ //This chunk of code must be in dict class
+      }
+      if(Integer.parseInt(args[1])==2){
+        System.out.println(dic.retrieve().get(3839));
+        System.out.println(dic.isWord2("apple") + "(Should print true)");
+        System.out.println(dic.isWord2("APPLE") + "(Should print true)");
+        System.out.println(dic.isWord2("deaedfs") + "(Should print false)");
+        System.out.println(dic.isWord2("xylophone") + "(Should print true)");
+      }
     }
   }
 }

@@ -6,7 +6,7 @@ import java.util.ArrayList;
 public class Dictionary{
   private ArrayList<String> wordList = new ArrayList<String>();
   private int[] tableOfContents;
-  public Scanner dict; //Her name is Scandra
+  private Scanner dict; //Her name is Scandra
 
   public Dictionary(){
     try{
