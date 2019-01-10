@@ -6,12 +6,11 @@ import java.util.ArrayList;
 public class Dictionary{
   private ArrayList<String> wordList = new ArrayList<String>();
   private int[] tableOfContents;
-  private Scanner dict; //Her name is Scandra
+  public Scanner dict; //Her name is Scandra
 
   public Dictionary(){
     try{
       File f = new File("wordList.txt");
-      Scanner dict = new Scanner(f);
       dict = new Scanner(f);
       while (dict.hasNext()) {
         wordList.add(dict.next().toLowerCase()); //Loops through and adds words from dictionary to an ArrayList
