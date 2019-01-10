@@ -26,33 +26,37 @@ public class WordLadder{
     }
     return output;
   }
-  public boolean findOverlap(ArrayList<Node> list1, ArrayList<Node> list2) { //Looping through arraylists to find overlaps which means the ladder would be complete
+  public ArrayList<Node> findOverlap(ArrayList<Node> list1, ArrayList<Node> list2) { //Looping through arraylists to find overlaps which means the ladder would be complete
     ArrayList<Node> output = new ArrayList<Node>();
-    if (list1.size() > list2.size()) {
+    if (list1.size() >= list2.size()) {
       for (int idx = 0; idx < list1.size(); idx++) {
-        for (int x = 0; x < list2.size(); idx++) {
-          if (list1.get(idx).equals(list2.get(x))) {
-            return true;
+        for (int x = 0; x < list2.size(); x++) {
+          if (list1.get(idx).getValue().equals(list2.get(x).getValue())) {
+            output.add(list1.get(idx));
           }
         }
       }
     }
-    if (list2.size() > list1.size()) {
-      for (int idx = 0; idx < list2.size(); idx++) {
-        for (int x = 0; x < list1.size(); idx++) {
-          if (list2.get(idx).equals(list1.get(x))) {
-            return true;
-          }
-        }
-      }
-    }
-    return false;
+    return output;
   }
   public static void main(String[]args){
     WordLadder test = new WordLadder();
+    Node one = new Node("1");
+    Node two = new Node("2");
+    Node three = new Node("3");
+    Node four = new Node("4");
+    Node five = new Node("2");
+    ArrayList<Node> compare = new ArrayList<Node>();
+    ArrayList<Node> compare2 = new ArrayList<Node>();
+    compare.add(one); compare.add(two); compare.add(three);
+    compare2.add(four); compare2.add(five); compare2.add(two); compare2.add(one);
     System.out.println(test.oneOff("apple").toString());
     System.out.println(test.oneOff("hello").toString());
     System.out.println(test.oneOff("xylophone").toString());
     System.out.println(test.oneOff("bad"));
+    System.out.println(compare.toString());
+    System.out.println(compare2.toString());
+    System.out.println(test.findOverlap(compare, compare2).toString());
+    System.out.println(test.findOverlap(compare2, compare).toString());
   }
 }
