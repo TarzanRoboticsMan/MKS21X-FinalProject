@@ -27,3 +27,7 @@ Coby, 1/8:
 
 Izzy, 1/8:
   Started writing oneOff, Coby helped find and issue with isWord that was throwing it off and helped fix it so that it works with letters that start with z. Wrote oneOff such that it takes in a String right now rather than a Node, wrote a driver to test oneOff also.
+
+
+Izzy, 1/9:
+  Wrote oneOff to work with an Array of Nodes rather than just strings, wrote a tooString for Node, ran testing on various isWord functions that Coby was working on.
