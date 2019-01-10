@@ -16,4 +16,7 @@ public class Node {
   public void setPrevious(Node str){
     previous.add(str);
   }
+  public String toString(){
+    return value;
+  }
 }
