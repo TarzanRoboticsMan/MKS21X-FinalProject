@@ -26,6 +26,28 @@ public class WordLadder{
     }
     return output;
   }
+  public boolean findOverlap(ArrayList<Node> list1, ArrayList<Node> list2) { //Looping through arraylists to find overlaps which means the ladder would be complete
+    ArrayList<Node> output = new ArrayList<Node>();
+    if (list1.size() > list2.size()) {
+      for (int idx = 0; idx < list1.size(); idx++) {
+        for (int x = 0; x < list2.size(); idx++) {
+          if (list1.get(idx).equals(list2.get(x))) {
+            return true;
+          }
+        }
+      }
+    }
+    if (list2.size() > list1.size()) {
+      for (int idx = 0; idx < list2.size(); idx++) {
+        for (int x = 0; x < list1.size(); idx++) {
+          if (list2.get(idx).equals(list1.get(x))) {
+            return true;
+          }
+        }
+      }
+    }
+    return false;
+  }
   public static void main(String[]args){
     WordLadder test = new WordLadder();
     System.out.println(test.oneOff("apple").toString());
