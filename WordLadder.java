@@ -28,11 +28,20 @@ public class WordLadder{
   }
   public ArrayList<Node> findOverlap(ArrayList<Node> list1, ArrayList<Node> list2) { //Looping through arraylists to find overlaps which means the ladder would be complete
     ArrayList<Node> output = new ArrayList<Node>();
-    if (list1.size() >= list2.size()) {
+    if (list1.size() >= list2.size()) { //So that it doesn't matter if you compare the shorter or longer one first
       for (int idx = 0; idx < list1.size(); idx++) {
         for (int x = 0; x < list2.size(); x++) {
-          if (list1.get(idx).getValue().equals(list2.get(x).getValue())) {
+          if (list1.get(idx).getValue().equals(list2.get(x).getValue())) { //Compares the value of the nodes not the references
             output.add(list1.get(idx));
+          }
+        }
+      }
+    }
+    if (list1.size() < list2.size()) {
+      for (int idx = 0; idx < list2.size(); idx++) {
+        for (int x = 0; x < list1.size(); x++) {
+          if (list2.get(idx).getValue().equals(list1.get(x).getValue())) {
+            output.add(list2.get(idx));
           }
         }
       }
