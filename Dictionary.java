@@ -24,19 +24,28 @@ public class Dictionary{
     tableOfContents[0] = 0;
     for(int idx = 1; idx < wordList.size(); idx++) {
       if(wordList.get(idx).charAt(0) != (wordList.get(idx - 1).charAt(0))){
-        tableOfContents[x] = idx + 1;
+        tableOfContents[x] = idx;
         x++;
       }
     }
   }
   public boolean isWord(String value){
     value = value.toLowerCase();
-    for (int idx = tableOfContents[value.charAt(0) - 97]; idx < tableOfContents[value.charAt(0) - 96]; idx ++) { //Loops through wordList but only between the words that share the same first letter
-      if (wordList.get(idx).equals(value)) {
-        return true;
+    if (value.charAt(0) != 'z') {
+      for (int idx = tableOfContents[value.charAt(0) - 97]; idx < tableOfContents[value.charAt(0) - 96]; idx ++) { //Loops through wordList but only between the words that share the same first letter
+        if (wordList.get(idx).equals(value)) {
+          return true;
+        }
       }
+      return false;
+    } else {
+      for (int idx = tableOfContents[value.charAt(0) - 97]; idx < wordList.size(); idx ++) {
+        if (wordList.get(idx).equals(value)) {
+          return true;
+        }
+      }
+      return false;
     }
-    return false;
   }
 
   public boolean isWord2(String value){
