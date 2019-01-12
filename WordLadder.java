@@ -50,8 +50,8 @@ public class WordLadder{
   }
   public static void main(String[]args){
     WordLadder test = new WordLadder();
-    Node one = new Node("1");
-    Node two = new Node("2");
+    Node one = new Node("apple");
+    Node two = new Node("zoinks");
     Node three = new Node("3");
     Node four = new Node("4");
     Node five = new Node("2");
