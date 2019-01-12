@@ -32,6 +32,9 @@ Started writing oneOff, Coby helped find and issue with isWord that was throwing
 Coby, 1/9
   Finished driver! Determined that the findWithinHorizon driver is significantly faster, by a factor of 2 both for the word "swamp" (near end of largest letter category), and for the word "sswamp" (not in the dictionary).
 
+Izzy, 1/9:
+  Wrote oneOff to work with an Array of Nodes rather than just strings, wrote a tooString for Node, ran testing on various isWord functions that Coby was working on.
+
 Coby, 1/10
   Realized how idiotic I am: left a constructor for dict in Dictionary constructor when I made the private dict field for isWord2. Because of this, java always thought I was referencing the local-to-method object and never assigned dict the field, thus my nullPointerException.
   Retested times.
@@ -40,3 +43,7 @@ Coby, 1/10
   isWord2:
   1k - 0.6s   10k - 0.6s   100k - 0.6s  1M - 0.7s   
   Further;    10M - 1.4s   100M - 7.4s  1B - 69.4s
+
+
+  Izzy 1/10:
+    Wrote findOverlap for future use and added test cases in the main to make sure it works with Array<Node>.
