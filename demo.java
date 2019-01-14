@@ -32,11 +32,12 @@ public class demo {
     Dictionary dict = new Dictionary();
     String input = "";
     putString(1, 1, screen, "Please input word: ");
-		while (true) {
+		boolean running = true;
+		while (running) {
 
 			KeyStroke key = screen.pollInput();
 			if (key != null) {
-				if      (key.getKeyType() == KeyType.Escape)     break; //Allows user to exit
+				if      (key.getKeyType() == KeyType.Escape)     running = false; //Allows user to exit
 				else if (key.getKeyType() == KeyType.Character) {
           putString(idx, 1, screen, Character.toString(key.getCharacter()));
           idx++;
