@@ -23,20 +23,36 @@ public class demo {
 
 		Screen screen = new DefaultTerminalFactory().createScreen();
 		screen.startScreen();
-
+    int idx = 20;
+    WordLadder test = new WordLadder();
+    Dictionary dict = new Dictionary();
+    String input = "";
+    putString(1, 1, screen, "Please input word: ");
 		while (true) {
 
 			KeyStroke key = screen.pollInput();
-
 			if (key != null) {
 				screen.setCharacter(x, y, new TextCharacter(' '));
-				putString(1, 1, screen, "Please input word: ");
-        int idx = 20;
 				if      (key.getKeyType() == KeyType.Escape)     break;
 				else if (key.getKeyType() == KeyType.Character) {
           putString(idx, 1, screen, Character.toString(key.getCharacter()));
           idx++;
-          putString(idx, 2, screen, Integer.toString(idx));
+          input += Character.toString(key.getCharacter());
+        }
+        else if (key.getKeyType() == KeyType.Enter && input.length() > 0) {
+          screen.clear();
+          if (!dict.isWord(input)) {
+            putString(1, 1, screen, "Not a valid word, please press tab and try again.");
+          }
+          else {
+            Node attempt = new Node(input);
+          }
+        }
+        else if (key.getKeyType() == KeyType.Tab) {
+          screen.clear();
+          idx = 20;
+          input = "";
+          putString(1, 1, screen, "Please input word: ");
         }
 
 
