@@ -3,12 +3,21 @@ Final Project Name: WordLadder
 Group Name: Socha Word Olympic Team
 
 
+Instructions:
+  Our project is a word ladder in which you input two words of the same length and a path between the two words is displayed in which one letter of the first word is changed between each step, with each intermediate step being a valid word.
+  Instructions for demo:
+    Currently for our demo, we have it so that only one word can be inputted and it then displays every valid word that is one letter off.
+    - Once you open the terminal, it should say "Please input a word"
+    - If you mess up while typing your word, simply hit the tab button to restart
+    - Once you finish typing your word, hit enter to see all words that are one letter different
+    - Then either hit tab to do it again, or hit escape to exit the program
+
 Coby, 1/4:
   Wrote prototype dictionary and scanner in WordLadder.java to test scanning through words. Spent a bunch of time studying javadocs for scanner and patterns
 
 
 Izzy, 1/5:
-  I wrote the basic code for the Node class in which we will store our words and their previous words to maintain their "path". I also downloaded a word list text file to use as our dictionary. I wrote the constructor for the dictionary class, creating the ArrayList of words based off of code Coby wrote earlier and then wrote the code to develop the table of contents, allowing us to more quickly access words based off of their first letter so we don't have to loop through the entire file everytime.
+  I wrote the basic code for the Node class in which we will store our words and their previous words to maintain their "path". I also downloaded a word list text file to use as our dictionary. I wrote the constructor for the dictionary class, creating the ArrayList of words based off of code Coby wrote earlier and then wrote the code to develop the table of contents, allowing us to more quickly access words based off of their first letter so we don't have to loop through the entire file every time.
 
 
 Izzy, 1/6:
@@ -44,6 +53,8 @@ Coby, 1/10
   1k - 0.6s   10k - 0.6s   100k - 0.6s  1M - 0.7s   
   Further;    10M - 1.4s   100M - 7.4s  1B - 69.4s
 
+Izzy, 1/10:
+  Wrote findOverlap for future use and added test cases in the main to make sure it works with Array<Node>.
 
-  Izzy 1/10:
-    Wrote findOverlap for future use and added test cases in the main to make sure it works with Array<Node>.
+Izzy, 1/13:
+  Created demo.java which uses lanterna to take user inputted words and then display all the words that are one letter off from the one they inputted. Will change to display word path once we finish writing that code, however.
