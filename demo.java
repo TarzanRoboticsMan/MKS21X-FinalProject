@@ -43,6 +43,11 @@ public class demo {
           idx++;
           input += Character.toString(key.getCharacter()); //Builds String to use for later out of user input
         }
+        else if (key.getKeyType() == KeyType.Backspace) {
+          input = input.substring(0, input.length() - 1);
+          idx--;
+          putString(idx, 1, screen, " ");
+        }
         else if (key.getKeyType() == KeyType.Enter && input.length() > 0) {
           screen.clear();
           if (!dict.isWord(input)) {
