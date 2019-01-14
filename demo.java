@@ -47,7 +47,7 @@ public class demo {
           if (!dict.isWord(input)) {
             putString(1, 1, screen, "Not a valid word, please press tab and try again."); //Ensures user puts in a valid word
           }
-          if (test.oneOff(input).size() == 0) {
+          else if (test.oneOff(input).size() == 0) {
             putString(1, 1, screen, "There are no words with a one letter difference from the word you inputted.");
           }
           else {
