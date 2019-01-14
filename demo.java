@@ -14,19 +14,16 @@ public class demo {
 	public static void putString(int x, int y, Screen screen, String str) {
     int n = 1;
 		for (int i = 0; i < str.length(); ++i) {
-      if (i < 75) {
+      if (i < 75) { //So that words don't get cut off at the end of the screen
         screen.setCharacter(x+i, y, new TextCharacter(str.charAt(i)));
       }
       else {
-        screen.setCharacter(x+ (i - 80 * n), y + n, new TextCharacter(str.charAt(i)));
+        screen.setCharacter(x+ (i - 80 * n), y + n, new TextCharacter(str.charAt(i))); //Starts words on next line
       }
 		}
 	}
 
 	public static void main(String[] args) throws IOException {
-
-//		int x = 10;
-//		int y = 10;
 
 		Screen screen = new DefaultTerminalFactory().createScreen();
 		screen.startScreen();
@@ -49,6 +46,9 @@ public class demo {
           screen.clear();
           if (!dict.isWord(input)) {
             putString(1, 1, screen, "Not a valid word, please press tab and try again."); //Ensures user puts in a valid word
+          }
+          if (test.oneOff(input).size() == 0) {
+            putString(1, 1, screen, "There are no words with a one letter difference from the word you inputted.");
           }
           else {
       //      Node attempt = new Node(input);
