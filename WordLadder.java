@@ -11,6 +11,7 @@ public class WordLadder{
   private Dictionary dic = new Dictionary();
 
   public ArrayList<Node> oneOff(String val) {
+    val = val.toLowerCase();
     ArrayList<Node> output = new ArrayList<Node>();
     for (int x = 0; x < val.length(); x++) { //Going through all the possibilities one position at a time
       for (int idx = 97; idx < 123; idx++) { //Switching it to every possible letter
