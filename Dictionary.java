@@ -48,7 +48,8 @@ public class Dictionary{
   }
 
   public boolean isWord2(String value){
-    System.out.println(dict.findWithinHorizon(value,0));
+    //System.out.println(dict.findWithinHorizon(value,0));
+    //System.out.println();
     return (dict.findWithinHorizon(value,0) != null);
   }
   public ArrayList<String> retrieve() { //To access wordList while testing
