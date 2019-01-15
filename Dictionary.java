@@ -31,24 +31,24 @@ public class Dictionary{
   }
   public boolean isWord(String value){
     value = value.toLowerCase();
-    if (value.charAt(0) != 'z') {
+    if ("abcdefghijklmnopqrstuvwxy".indexOf(value.charAt(0)) != -1) { //Ensuring no special characters are inputted, which results in an error
       for (int idx = tableOfContents[value.charAt(0) - 97]; idx < tableOfContents[value.charAt(0) - 96]; idx ++) { //Loops through wordList but only between the words that share the same first letter
         if (wordList.get(idx).equals(value)) {
           return true;
         }
       }
-      return false;
-    } else {
+    } else if (value.charAt(0) == 'z'){
       for (int idx = tableOfContents[value.charAt(0) - 97]; idx < wordList.size(); idx ++) {
         if (wordList.get(idx).equals(value)) {
           return true;
         }
       }
-      return false;
     }
+    return false;
   }
 
   public boolean isWord2(String value){
+    System.out.println(dict.findWithinHorizon(value,0));
     return (dict.findWithinHorizon(value,0) != null);
   }
   public ArrayList<String> retrieve() { //To access wordList while testing
