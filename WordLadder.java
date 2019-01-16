@@ -12,6 +12,7 @@ public class WordLadder{
 
   public ArrayList<Node> oneOff(String val) {
     val = val.toLowerCase();
+    Node og = new Node(og);
     ArrayList<Node> output = new ArrayList<Node>();
     for (int x = 0; x < val.length(); x++) { //Going through all the possibilities one position at a time
       for (int idx = 97; idx < 123; idx++) { //Switching it to every possible letter
@@ -20,7 +21,7 @@ public class WordLadder{
         String val2;
         val2 = begin + (char)idx + end; //Creating new word with changed letter
         if (dic.isWord(val2) && !val2.equals(val)) {
-          Node input = new Node(val2);
+          Node input = new Node(val2, og);
           output.add(input); //Adding it to our ArrayList of words that are one away if it is a valid word
         }
       }
@@ -48,6 +49,23 @@ public class WordLadder{
       }
     }
     return output;
+  }
+  public boolean findMatch(ArrayList<Node> list, String value) {
+    for (int idx = 0; idx < list.size(); idx++) {
+      if(list.get(idx).getValue().equals(value)) {
+        return true;
+      }
+    }
+    return false;
+  }
+  public ArrayList<Node> findPaths(ArrayList<Node> list, String val) {
+    ArrayList<Node> output = new ArrayList<Node>();
+    if (findMatch(list, val)) {
+      output.add(val);
+      Node current = new Node();
+      current = list.get(val.indexOf());
+      while (current.hasPrev)
+    }
   }
   public static void main(String[]args){
     WordLadder test = new WordLadder();
