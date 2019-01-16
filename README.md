@@ -58,3 +58,6 @@ Izzy, 1/10:
 
 Izzy, 1/13:
   Created demo.java which uses lanterna to take user inputted words and then display all the words that are one letter off from the one they inputted. Will change to display word path once we finish writing that code, however.
+
+Izzy 1/14:
+  Edited demo.java to display instructions and to give the user the ability to delete letters if they accidentally type a wrong letter rather than having to restart like before. Fixed isWord so that program doesn't throw and error and break when characters that aren't letters are inputted.
