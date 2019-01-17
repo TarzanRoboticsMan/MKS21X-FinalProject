@@ -12,7 +12,7 @@ public class WordLadder{
 
   public ArrayList<Node> oneOff(String val) {
     val = val.toLowerCase();
-    Node og = new Node(og);
+    Node og = new Node(val);
     ArrayList<Node> output = new ArrayList<Node>();
     for (int x = 0; x < val.length(); x++) { //Going through all the possibilities one position at a time
       for (int idx = 97; idx < 123; idx++) { //Switching it to every possible letter
@@ -58,14 +58,25 @@ public class WordLadder{
     }
     return false;
   }
-  public ArrayList<Node> findPaths(ArrayList<Node> list, String val) {
+  public ArrayList<Node> findPaths(String val1, String val2) {
     ArrayList<Node> output = new ArrayList<Node>();
-    if (findMatch(list, val)) {
-      output.add(val);
-      Node current = new Node();
-      current = list.get(val.indexOf());
-      while (current.hasPrev)
+    Node start = new Node(val1);
+    Node end = new Node(val2);
+    if (val1.equals(val2)) {
+      output.add(start); output.add(end);
+      return output;
     }
+    ArrayList<Node> list = oneOff(val1);
+    int idx = 0;
+    while (!findMatch(list, val2) && idx < list.size()) {
+      list = oneOff(list.get(idx).getValue());
+    }
+    Node current = list.get(list.indexOf(val2));
+    while (current != null) {
+      output.add(current);
+      current = current.prev();
+    }
+    return output;
   }
   public static void main(String[]args){
     WordLadder test = new WordLadder();
@@ -86,5 +97,8 @@ public class WordLadder{
     System.out.println(compare2.toString());
     System.out.println(test.findOverlap(compare, compare2).toString());
     System.out.println(test.findOverlap(compare2, compare).toString());
+    System.out.println(test.oneOff("pie").toString());
+    System.out.println(test.findPaths("pie", "pie"));
+    System.out.println(test.findPaths("pie", "die"));
   }
 }
