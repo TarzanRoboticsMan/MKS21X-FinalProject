@@ -35,7 +35,7 @@ public class Driver{
       if(Integer.parseInt(args[1])==2){
         System.out.println(dic.retrieve().get(3839));
         System.out.println(dic.isWord2("apple") + "(Should print true)");
-        System.out.println(dic.isWord2("APPLE") + "(Should print true)");
+        System.out.println(dic.isWord2("APPLE") + "(Should print false)");
         System.out.println(dic.isWord2("deaedfs") + "(Should print false)");
         System.out.println(dic.isWord2("xylophone") + "(Should print true)");
       }

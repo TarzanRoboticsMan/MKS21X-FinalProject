@@ -6,12 +6,12 @@ import java.util.ArrayList;
 public class Dictionary{
   private ArrayList<String> wordList = new ArrayList<String>();
   private int[] tableOfContents;
-  private Scanner dict; //Her name is Scandra
+  //public Scanner dict; //Her name is Scandra
 
   public Dictionary(){
     try{
       File f = new File("wordList.txt");
-      dict = new Scanner(f);
+      Scanner dict = new Scanner(f);
       while (dict.hasNext()) {
         wordList.add(dict.next().toLowerCase()); //Loops through and adds words from dictionary to an ArrayList
       }
@@ -30,7 +30,7 @@ public class Dictionary{
     }
   }
   public boolean isWord(String value){
-    value = value.toLowerCase();
+    //value = value.toLowerCase();
     if ("abcdefghijklmnopqrstuvwxy".indexOf(value.charAt(0)) != -1) { //Ensuring no special characters are inputted, which results in an error
       for (int idx = tableOfContents[value.charAt(0) - 97]; idx < tableOfContents[value.charAt(0) - 96]; idx ++) { //Loops through wordList but only between the words that share the same first letter
         if (wordList.get(idx).equals(value)) {
@@ -48,9 +48,19 @@ public class Dictionary{
   }
 
   public boolean isWord2(String value){
+
     //System.out.println(dict.findWithinHorizon(value,0));
     //System.out.println();
-    return (dict.findWithinHorizon(value,0) != null);
+    try{
+      File f = new File("wordList.txt");
+      Scanner dict = new Scanner(f);
+      return (dict.findWithinHorizon(value,0) != null);
+    }
+    catch(FileNotFoundException e){
+      System.out.println("File not found: wordList.txt");
+      System.exit(1);
+    }
+    return false;//should never happen
   }
   public ArrayList<String> retrieve() { //To access wordList while testing
     return wordList;
