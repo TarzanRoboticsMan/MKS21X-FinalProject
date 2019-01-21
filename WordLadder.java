@@ -113,6 +113,8 @@ public class WordLadder{
     System.out.println(test.findPaths("bank", "wink"));
     System.out.println(test.findPaths("bank", "fail"));
     System.out.println(test.findPaths("bam", "pie"));
-    System.out.println(test.findPaths("happy", "apple"));
+//    System.out.println(test.findPaths("happy", "apple"));
+    System.out.println(test.findPaths("shut", "hook"));
+    System.out.println(test.findPaths("ear", "hut"));
   }
 }
