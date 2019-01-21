@@ -69,13 +69,20 @@ public class WordLadder{
     ArrayList<Node> list = oneOff(val1);
     ArrayList<Node> checkList = list;
     int idx = 0;
+    ArrayList<Node> connected = new ArrayList<Node>();
     while (findMatch(checkList, val2) == null) {
       checkList = oneOff(list.get(idx).getValue()); //Loops through each value and checks words that are oneOff, creating a tree essentially
+      for (int x = 0; x < checkList.size(); x++) {
+        if (!connected.contains(checkList.get(x))) {
+          connected.add(checkList.get(x)); //Creates one large list in order to then check it's oneOff later
+        }
+      }
       idx++;
       if (idx == list.size()) {
         idx = 0;
-        list = oneOff(checkList.get(idx).getValue());
+        list = connected;
         checkList = list;
+      //  connected.clear();
       }
     }
     current = findMatch(checkList, val2);
@@ -112,5 +119,8 @@ public class WordLadder{
     System.out.println(test.findPaths("pie", "die"));
     System.out.println(test.findPaths("bank", "rink"));
     System.out.println(test.findPaths("fall", "bull"));
+    System.out.println(test.findPaths("bile", "wink"));
+    System.out.println(test.findPaths("bank", "wink"));
+    System.out.println(test.findPaths("bank", "fail"));
   }
 }
