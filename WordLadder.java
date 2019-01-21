@@ -10,18 +10,17 @@ public class WordLadder{
   public ArrayList<Node> ends;
   private Dictionary dic = new Dictionary();
 
-  public ArrayList<Node> oneOff(String val) {
-    val = val.toLowerCase();
-    Node og = new Node(val);
+  public ArrayList<Node> oneOff(Node val) {
+  //  val = val.toLowerCase();
     ArrayList<Node> output = new ArrayList<Node>();
-    for (int x = 0; x < val.length(); x++) { //Going through all the possibilities one position at a time
+    for (int x = 0; x < val.getValue().length(); x++) { //Going through all the possibilities one position at a time
       for (int idx = 97; idx < 123; idx++) { //Switching it to every possible letter
-        String begin = val.substring(0, x);
-        String end = val.substring(x + 1, val.length());
+        String begin = val.getValue().substring(0, x);
+        String end = val.getValue().substring(x + 1, val.getValue().length());
         String val2;
         val2 = begin + (char)idx + end; //Creating new word with changed letter
-        if (dic.isWord(val2) && !val2.equals(val)) {
-          Node input = new Node(val2, og);
+        if (dic.isWord(val2) && !val2.equals(val.getValue())) {
+          Node input = new Node(val2, val);
           output.add(input); //Adding it to our ArrayList of words that are one away if it is a valid word
         }
       }
@@ -66,12 +65,12 @@ public class WordLadder{
       output.add(start);
       return output;
     }
-    ArrayList<Node> list = oneOff(val1);
+    ArrayList<Node> list = oneOff(start);
     ArrayList<Node> checkList = list;
     int idx = 0;
     ArrayList<Node> connected = new ArrayList<Node>();
     while (findMatch(checkList, val2) == null) {
-      checkList = oneOff(list.get(idx).getValue()); //Loops through each value and checks words that are oneOff, creating a tree essentially
+      checkList = oneOff(list.get(idx)); //Loops through each value and checks words that are oneOff, creating a tree essentially
       for (int x = 0; x < checkList.size(); x++) {
         if (!list.contains(checkList.get(x))) {
           list.add(checkList.get(x)); //Creates one large list in order to then check it's oneOff later
@@ -97,15 +96,15 @@ public class WordLadder{
     ArrayList<Node> compare2 = new ArrayList<Node>();
     compare.add(one); compare.add(two); compare.add(three);
     compare2.add(four); compare2.add(five); compare2.add(two); compare2.add(one);
-    System.out.println(test.oneOff("apple").toString());
-    System.out.println(test.oneOff("hello").toString());
-    System.out.println(test.oneOff("xylophone").toString());
-    System.out.println(test.oneOff("bad"));
+    System.out.println(test.oneOff(one).toString());
+//    System.out.println(test.oneOff("hello").toString());
+//    System.out.println(test.oneOff("xylophone").toString());
+//    System.out.println(test.oneOff("bad"));
     System.out.println(compare.toString());
     System.out.println(compare2.toString());
     System.out.println(test.findOverlap(compare, compare2).toString());
     System.out.println(test.findOverlap(compare2, compare).toString());
-    System.out.println(test.oneOff("pie").toString());
+//    System.out.println(test.oneOff("pie").toString());
     System.out.println(test.findPaths("pie", "pie"));
     System.out.println(test.findPaths("pie", "die"));
     System.out.println(test.findPaths("bank", "rink"));
