@@ -54,11 +54,24 @@ public class demo {
 					int countSpaces = 0;
 					String word1 = "";
 					String word2 = "";
-					for (int x = 1; x < input.length(); idx++) {
-						if (input.substring(x - 1, x).equals(" ")) {
-							word1 = input.substring(0, x);
-							word2 = input.substring(x + 1);
-							countSpaces ++;
+					int x = 0;
+					while (x < input.length()) {
+						word1 += input.charAt(x);
+						if (input.charAt(x) == ' ') {
+							countSpaces++;
+							word1 = word1.substring(0, word1.length() - 1);
+							x++;
+							break;
+						}
+						x++;
+					}
+					if (countSpaces == 1) {
+						while (x < input.length()) {
+							word2 += input.charAt(x);
+							if (input.charAt(x) == ' ') {
+								countSpaces++;
+							}
+							x++;
 						}
 					}
 					if (countSpaces != 1) {
