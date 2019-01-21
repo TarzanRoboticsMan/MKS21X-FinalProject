@@ -83,8 +83,15 @@ public class demo {
 					else if (!dict.isWord(word2)) {
             putString(1, 1, screen, "Your second word is not a valid word, please press tab and try again."); //Ensures user puts in a valid word
           }
+					else if (word1.length() != word2.length()) {
+						putString(1, 1, screen, "Your words are two different lengths, please press tab and try again.");
+					}
           else {
-            putString(1, 1, screen, test.findPaths(word1, word2).toString().substring(1, test.findPaths(word1, word2).toString().length() - 1));
+						ArrayList<Node> output = new ArrayList<Node>();
+						for (int i = test.findPaths(word1, word2).size() - 1; i >= 0; i--) {
+							output.add(test.findPaths(word1, word2).get(i));
+						}
+            putString(1, 1, screen, output.toString().substring(1, test.findPaths(word1, word2).toString().length() - 1));
           }
         }
         else if (key.getKeyType() == KeyType.Tab) { //Allows user to input more words
