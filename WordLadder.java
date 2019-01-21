@@ -50,17 +50,18 @@ public class WordLadder{
     }
     return output;
   }
-  public boolean findMatch(ArrayList<Node> list, String value) {
+  public Node findMatch(ArrayList<Node> list, String value) {
     for (int idx = 0; idx < list.size(); idx++) {
       if(list.get(idx).getValue().equals(value)) {
-        return true;
+        return list.get(idx);
       }
     }
-    return false;
+    return null;
   }
   public ArrayList<Node> findPaths(String val1, String val2) {
     ArrayList<Node> output = new ArrayList<Node>();
     Node start = new Node(val1);
+    Node current = new Node();
     if (val1.equals(val2)) {
       output.add(start);
       return output;
@@ -70,17 +71,16 @@ public class WordLadder{
     System.out.println(list);
     System.out.println(checkList);
     int idx = 0;
-    while (!findMatch(checkList, val2)) {
+    while (findMatch(checkList, val2) == null) {
       checkList = oneOff(list.get(idx).getValue());
       idx++;
-      if (idx == list.size()) {
-        idx = 0;
-        list = oneOff(checkList.get(idx).getValue());
-        checkList = list;
-      }
+//      if (idx == list.size()) {
+//        idx = 0;
+//        list = oneOff(checkList.get(idx).getValue());
+//        checkList = list;
+//      }
     }
-    System.out.println(checkList.get(checkList.indexOf(val2)));
-    Node current = checkList.get(checkList.indexOf(val2));
+    current = findMatch(checkList, val2);
     while (current != null) {
       output.add(current);
       current = current.prev();
