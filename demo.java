@@ -27,11 +27,11 @@ public class demo {
 
 		Screen screen = new DefaultTerminalFactory().createScreen();
 		screen.startScreen();
-    int idx = 20;
+    int idx = 1;
     WordLadder test = new WordLadder();
     Dictionary dict = new Dictionary();
     String input = "";
-    putString(1, 1, screen, "Please input word: ");
+    putString(1, 1, screen, "Please input word two words of the same length separated by a space: ");
     putString(1, 20, screen, "Press enter once finished, press tab to restart.");
 		boolean running = true;
 		while (running) {
@@ -40,35 +40,45 @@ public class demo {
 			if (key != null) {
 				if      (key.getKeyType() == KeyType.Escape)     running = false; //Allows user to exit
 				else if (key.getKeyType() == KeyType.Character) {
-          putString(idx, 1, screen, Character.toString(key.getCharacter()));
+          putString(idx, 2, screen, Character.toString(key.getCharacter()));
           idx++;
           input += Character.toString(key.getCharacter()); //Builds String to use for later out of user input
         }
         else if (key.getKeyType() == KeyType.Backspace && input.length()>0) {
           input = input.substring(0, input.length() - 1);
           idx--;
-          putString(idx, 1, screen, " ");
+          putString(idx, 2, screen, " ");
         }
         else if (key.getKeyType() == KeyType.Enter && input.length() > 0) {
           screen.clear();
-          if (!dict.isWord(input)) {
-            putString(1, 1, screen, "Not a valid word, please press tab and try again."); //Ensures user puts in a valid word
+					int countSpaces = 0;
+					String word1 = "";
+					String word2 = "";
+					for (int x = 1; x < input.length(); idx++) {
+						if (input.substring(x - 1, x).equals(" ")) {
+							word1 = input.substring(0, x);
+							word2 = input.substring(x + 1);
+							countSpaces ++;
+						}
+					}
+					if (countSpaces != 1) {
+						putString(1, 1, screen, "You did not input the correct number of words, please press tab and try again.");
+					}
+          else if (!dict.isWord(word1)) {
+            putString(1, 1, screen, "Your first word is not a valid word, please press tab and try again."); //Ensures user puts in a valid word
           }
-          else if (test.oneOff(input).size() == 0) {
-            putString(1, 1, screen, "There are no words with a one letter difference from the word you inputted.");
+					else if (!dict.isWord(word2)) {
+            putString(1, 1, screen, "Your second word is not a valid word, please press tab and try again."); //Ensures user puts in a valid word
           }
           else {
-      //      Node attempt = new Node(input);
-      //      ArrayList<Node> output = new ArrayList<Node>();
-      //      output = test.oneOff(attempt);
-            putString(1, 1, screen, test.oneOff(input).toString().substring(1, test.oneOff(input).toString().length() - 1));
+            putString(1, 1, screen, test.findPaths(word1, word2).toString().substring(1, test.findPaths(word1, word2).toString().length() - 1));
           }
         }
         else if (key.getKeyType() == KeyType.Tab) { //Allows user to input more words
           screen.clear();
-          idx = 20;
+          idx = 1;
           input = "";
-          putString(1, 1, screen, "Please input word: ");
+          putString(1, 1, screen, "Please input word two words of the same length separated by a space: ");
           putString(1, 20, screen, "Press enter once finished, press tab to restart.");
         }
 
