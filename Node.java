@@ -12,6 +12,9 @@ public class Node {
     this.value = value;
     previous = prev;
   }
+  public Node(){
+    
+  }
   public String getValue() {
     return value;
   }
