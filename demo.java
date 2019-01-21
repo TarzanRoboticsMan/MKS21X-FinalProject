@@ -51,23 +51,24 @@ public class demo {
         }
         else if (key.getKeyType() == KeyType.Enter && input.length() > 0) {
           screen.clear();
-					int countSpaces = 0;
+					input = input.toLowerCase();
+					int countSpaces = 0; //To insure proper number of spaces
 					String word1 = "";
 					String word2 = "";
 					int x = 0;
 					while (x < input.length()) {
-						word1 += input.charAt(x);
+						word1 += input.charAt(x); //Builds first word
 						if (input.charAt(x) == ' ') {
 							countSpaces++;
-							word1 = word1.substring(0, word1.length() - 1);
+							word1 = word1.substring(0, word1.length() - 1); //Gets rid of extra space at end
 							x++;
 							break;
 						}
 						x++;
 					}
-					if (countSpaces == 1) {
+					if (countSpaces == 1) { //Makes sure second word is being built from letters after space
 						while (x < input.length()) {
-							word2 += input.charAt(x);
+							word2 += input.charAt(x); //Builds second word
 							if (input.charAt(x) == ' ') {
 								countSpaces++;
 							}
@@ -88,10 +89,12 @@ public class demo {
 					}
           else {
 						ArrayList<Node> output = new ArrayList<Node>();
-						for (int i = test.findPaths(word1, word2).size() - 1; i >= 0; i--) {
+						for (int i = test.findPaths(word1, word2).size() - 1; i >= 0; i--) { //Displays word ladder from first to last word rather than backwards
 							output.add(test.findPaths(word1, word2).get(i));
 						}
-            putString(1, 1, screen, output.toString().substring(1, test.findPaths(word1, word2).toString().length() - 1));
+						putString(1, 1, screen, "Here is your word ladder:");
+            putString(1, 2, screen, output.toString().substring(1, test.findPaths(word1, word2).toString().length() - 1)); //Gets rid of brackets at end
+						putString(1, 5, screen, "Please press tab if you'd like to go again.");
           }
         }
         else if (key.getKeyType() == KeyType.Tab) { //Allows user to input more words
