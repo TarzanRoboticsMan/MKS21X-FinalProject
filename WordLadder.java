@@ -61,6 +61,7 @@ public class WordLadder{
   public ArrayList<Node> findPaths(String val1, String val2) {
     ArrayList<Node> output1 = new ArrayList<Node>();
     ArrayList<Node> output2 = new ArrayList<Node>();
+    Node check = new Node("Nope");
     Node start = new Node(val1);
     Node end = new Node(val2);
     if (val1.equals(val2)) {
@@ -87,7 +88,8 @@ public class WordLadder{
     while (findOverlap(list, list2, 1) == null) {
       long tEnd = System.currentTimeMillis();
 			long millis = tEnd - tStart;
-      if (millis/1000 > 60) { //Stops program if it's taking too long
+      if (millis/1000 > 75) { //Stops program if it's taking too long
+        output1.add(check);
         return output1;
       }
       checkList = oneOff(list.get(idx)); //Loops through each value and checks words that are oneOff, creating a tree essentially

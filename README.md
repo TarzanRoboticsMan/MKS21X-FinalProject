@@ -5,12 +5,13 @@ Group Name: Socha Word Olympic Team
 
 Instructions:
   Our project is a word ladder in which you input two words of the same length and a path between the two words is displayed in which one letter of the first word is changed between each step, with each intermediate step being a valid word.
-  Instructions for demo:
-    Currently for our demo, we have it so that only one word can be inputted and it then displays every valid word that is one letter off.
-    - Once you open the terminal, it should say "Please input a word"
-    - If you mess up while typing your word, simply hit the tab button to restart
-    - Once you finish typing your word, hit enter to see all words that are one letter different
-    - Then either hit tab to do it again, or hit escape to exit the program
+    - Please make sure your screens width is at least 80 and its height is at least 23.
+    - To run the program, please first compile using "javac -cp lanterna.jar:. Final.java", and then run using "java -cp lanterna.jar:. Final".
+    - Once you open the terminal, it should say "Please input two words of the same length separated by a space"
+    - If you mess up while typing your words, simply hit the tab button to restart or backspace to delete the previous character typed.
+    - Once you finish typing your words, hit enter to see possible word paths.
+    - The longest paths will take around a minute and fifteen seconds to process and generate, so please be patient.
+    - Then either hit tab to do it again, or hit escape to exit the program.
 
 Coby, 1/4:
   Wrote prototype dictionary and scanner in WordLadder.java to test scanning through words. Spent a bunch of time studying javadocs for scanner and patterns
@@ -82,4 +83,4 @@ Coby, 1/21:
   Optimization optimization. lots of things didn't work, but made the splitDict branch and managed to split up dict creating by word length to increase speed. Also backfilled some logs - suboptimal, but realized things were missing and would rather backfill than not have log
 
 Izzy 1/21:
-  I got findPath to work going from one direction by fixing oneOff to not instantiate a new Node each time that has a null previous. I got user input through lanterna working. I realized our dictionary didn't have plural words, found a dictionary that was twice as big to use for our program. I then got our findPaths to work bi-directionally, greatly reducing the time it takes our program to run.
+  I got findPath to work going from one direction by fixing oneOff to not instantiate a new Node each time that has a null previous. I got user input through lanterna working. I realized our dictionary didn't have plural words, found a dictionary that was twice as big to use for our program. I then got our findPaths to work bi-directionally, greatly reducing the time it takes our program to run. Finally, added ways to find and display when there is no wordLadder between words.
