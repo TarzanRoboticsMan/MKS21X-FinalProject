@@ -133,10 +133,14 @@ public class WordLadder{
       output2.add(current2);
       current2 = current2.prev();
     }
-    for (int i = 0; i < output1.size(); i++) {
-      output2.add(output1.get(i));
+    ArrayList<Node> output = new ArrayList<Node>();
+    for (int i = output2.size() - 1; i >= 0; i--) { //Reversing output2 so it prints in correct order
+      output.add(output2.get(i));
     }
-    return output2;
+    for (int i = 1; i < output1.size(); i++) {
+      output.add(output1.get(i));
+    }
+    return output;
   }
   public static void main(String[]args){
     WordLadder test = new WordLadder();
@@ -173,5 +177,6 @@ public class WordLadder{
     System.out.println(test.findPaths2("bank", "rink"));
     System.out.println(test.findPaths2("fall", "bull"));
     System.out.println(test.findPaths2("bile", "wink"));
+    System.out.println(test.findPaths2("shut", "hook"));
   }
 }
