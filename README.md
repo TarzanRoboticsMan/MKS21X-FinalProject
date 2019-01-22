@@ -1,17 +1,17 @@
 # MKS21X-FinalProject
-Final Project Name: WordLadder
-Group Name: Socha Word Olympic Team
+Final Project Name: WordLadder  
+Group Name: Socha Word Olympic Team  
 
 
 Instructions:
   Our project is a word ladder in which you input two words of the same length and a path between the two words is displayed in which one letter of the first word is changed between each step, with each intermediate step being a valid word.
-    - Please make sure your screens width is at least 80 and its height is at least 23.
-    - To run the program, please first compile using "javac -cp lanterna.jar:. Final.java", and then run using "java -cp lanterna.jar:. Final".
-    - Once you open the terminal, it should say "Please input two words of the same length separated by a space"
-    - If you mess up while typing your words, simply hit the tab button to restart or backspace to delete the previous character typed.
-    - Once you finish typing your words, hit enter to see possible word paths.
-    - The longest paths will take around a minute and fifteen seconds to process and generate, so please be patient.
-    - Then either hit tab to do it again, or hit escape to exit the program.
+    - Please make sure your screens width is at least 80 and its height is at least 23.  
+    - To run the program, please first compile using "javac -cp lanterna.jar:. Final.java", and then run using "java -cp lanterna.jar:. Final".  
+    - Once you open the terminal, it should say "Please input two words of the same length separated by a space".  
+    - If you mess up while typing your words, simply hit the tab button to restart or backspace to delete the previous character typed.  
+    - Once you finish typing your words, hit enter to see possible word paths.  
+    - The longest paths will take around a minute and fifteen seconds to process and generate, so please be patient.  
+    - Then either hit tab to do it again, or hit escape to exit the program.  
 
 Coby, 1/4:
   Wrote prototype dictionary and scanner in WordLadder.java to test scanning through words. Spent a bunch of time studying javadocs for scanner and patterns
