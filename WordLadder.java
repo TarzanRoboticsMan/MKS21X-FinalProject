@@ -87,20 +87,28 @@ public class WordLadder{
     while (findOverlap(list, list2, 1) == null) {
       long tEnd = System.currentTimeMillis();
 			long millis = tEnd - tStart;
-      if (millis/1000 > 60) {
+      if (millis/1000 > 60) { //Stops program if it's taking too long
         return output1;
       }
       checkList = oneOff(list.get(idx)); //Loops through each value and checks words that are oneOff, creating a tree essentially
+      int ogSize1 = list.size();
       for (int x = 0; x < checkList.size(); x++) {
         if (!list.contains(checkList.get(x))) {
           list.add(checkList.get(x)); //Creates one large list in order to then check it's oneOff later
         }
       }
+      if (list.size() == ogSize1) { //If you've gone through all possible oneOffs, stop
+        return output1;
+      }
       checkList2 = oneOff(list2.get(idx)); //Loops through each value and checks words that are oneOff, creating a tree essentially
+      int ogSize2 = list2.size();
       for (int x = 0; x < checkList2.size(); x++) {
         if (!list2.contains(checkList2.get(x))) {
           list2.add(checkList2.get(x)); //Creates one large list in order to then check it's oneOff later
         }
+      }
+      if (list2.size() == ogSize2) { //If you've gone through all possible oneOffs, stop
+        return output1;
       }
       idx++;
     }
