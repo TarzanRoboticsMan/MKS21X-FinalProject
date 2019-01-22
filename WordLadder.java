@@ -4,11 +4,7 @@ import java.util.Scanner;
 import java.util.ArrayList;
 
 public class WordLadder{
-  private String start;
-  private String end;
-  public ArrayList<Node> starts;
-  public ArrayList<Node> ends;
-  private Dictionary dic = new Dictionary();
+  private Dictionary dic;
 
   public WordLadder(){}
   public WordLadder(int x){
@@ -33,7 +29,7 @@ public class WordLadder{
     }
     return output;
   }
-  public Node findOverlap(ArrayList<Node> list1, ArrayList<Node> list2, int list) { //Looping through arraylists to find overlaps which means the ladder would be complete
+  public Node findOverlap(ArrayList<Node> list1, ArrayList<Node> list2, int list) { //Looping through arraylists to find overlaps which means the ladder would be complete, can choose which list you want Node from
     if (list1.size() >= list2.size()) { //So that it doesn't matter if you compare the shorter or longer one first
       for (int idx = 0; idx < list1.size(); idx++) {
         for (int x = 0; x < list2.size(); x++) {
@@ -65,36 +61,6 @@ public class WordLadder{
     return null;
   }
   public ArrayList<Node> findPaths(String val1, String val2) {
-    ArrayList<Node> output = new ArrayList<Node>();
-    Node start = new Node(val1);
-    if (val1.equals(val2)) {
-      output.add(start);
-      return output;
-    }
-    ArrayList<Node> list = oneOff(start);
-    ArrayList<Node> checkList = list;
-    int idx = 0;
-    while (findMatch(checkList, val2) == null) {
-      checkList = oneOff(list.get(idx)); //Loops through each value and checks words that are oneOff, creating a tree essentially
-      for (int x = 0; x < checkList.size(); x++) {
-        int ogSize = list.size();
-        if (!list.contains(checkList.get(x))) {
-          list.add(checkList.get(x)); //Creates one large list in order to then check it's oneOff later
-        }
-        if (list.size() == ogSize) {
-          return output;
-        }
-      }
-      idx++;
-    }
-    Node current = findMatch(checkList, val2);
-    while (current != null) {
-      output.add(current);
-      current = current.prev();
-    }
-    return output;
-  }
-  public ArrayList<Node> findPaths2(String val1, String val2) {
     ArrayList<Node> output1 = new ArrayList<Node>();
     ArrayList<Node> output2 = new ArrayList<Node>();
     Node start = new Node(val1);
@@ -108,6 +74,14 @@ public class WordLadder{
     ArrayList<Node> checkList = list;
     ArrayList<Node> checkList2 = list2;
     int idx = 0;
+    if (findMatch(checkList, val2) != null) { //So that it doesn't add an extra step when there's only one step necessary
+      Node current = findMatch(checkList, val2);
+      while (current != null) {
+        output1.add(current);
+        current = current.prev();
+      }
+      return output1;
+    }
     while (findOverlap(list, list2, 1) == null) {
       checkList = oneOff(list.get(idx)); //Loops through each value and checks words that are oneOff, creating a tree essentially
       for (int x = 0; x < checkList.size(); x++) {
@@ -144,39 +118,15 @@ public class WordLadder{
   }
   public static void main(String[]args){
     WordLadder test = new WordLadder();
-    Node one = new Node("apple");
-    Node two = new Node("zoinks");
-    Node three = new Node("3");
-    Node four = new Node("4");
-    Node five = new Node("2");
-    ArrayList<Node> compare = new ArrayList<Node>();
-    ArrayList<Node> compare2 = new ArrayList<Node>();
-    compare.add(one); compare.add(two); compare.add(three);
-    compare2.add(four); compare2.add(five); compare2.add(two); compare2.add(one);
-    System.out.println(test.oneOff(one).toString());
-//    System.out.println(test.oneOff("hello").toString());
-//    System.out.println(test.oneOff("xylophone").toString());
-//    System.out.println(test.oneOff("bad"));
-    System.out.println(compare.toString());
-    System.out.println(compare2.toString());
-//    System.out.println(test.findOverlap(compare, compare2).toString());
-//    System.out.println(test.findOverlap(compare2, compare).toString());
-//    System.out.println(test.oneOff("pie").toString());
-//    System.out.println(test.findPaths("pie", "pie"));
-//    System.out.println(test.findPaths("pie", "die"));
-//    System.out.println(test.findPaths("bank", "rink"));
-//    System.out.println(test.findPaths("fall", "bull"));
-//    System.out.println(test.findPaths("bile", "wink"));
-//    System.out.println(test.findPaths("bank", "wink"));
-//    System.out.println(test.findPaths("bank", "fail"));
-//    System.out.println(test.findPaths("bam", "pie"));
-//    System.out.println(test.findPaths("happy", "apple"));
-//    System.out.println(test.findPaths("shut", "hook"));
-//    System.out.println(test.findPaths("ear", "hut"));
-    System.out.println(test.findPaths2("pie", "die"));
-    System.out.println(test.findPaths2("bank", "rink"));
-    System.out.println(test.findPaths2("fall", "bull"));
-    System.out.println(test.findPaths2("bile", "wink"));
-    System.out.println(test.findPaths2("shut", "hook"));
+    System.out.println(test.findPaths("pie", "pie"));
+    System.out.println(test.findPaths("pie", "die"));
+    System.out.println(test.findPaths("bam", "pie"));
+  //  System.out.println(test.findPaths("happy", "apple"));
+  //  System.out.println(test.findPaths("shut", "hook"));
+  //  System.out.println(test.findPaths("ear", "hut"));
+    System.out.println(test.findPaths("bank", "rink"));
+    System.out.println(test.findPaths("fall", "bull"));
+    System.out.println(test.findPaths("bile", "wink"));
+    System.out.println(test.findPaths("shut", "hook"));
   }
 }
