@@ -28,7 +28,7 @@ public class demo {
 		Screen screen = new DefaultTerminalFactory().createScreen();
 		screen.startScreen();
     int idx = 1;
-    WordLadder test = new WordLadder();
+    //WordLadder test = new WordLadder(); //Code moved to after words inputted
     Dictionary dict = new Dictionary();
     String input = "";
     putString(1, 1, screen, "Please input word two words of the same length separated by a space: ");
@@ -88,6 +88,7 @@ public class demo {
 						putString(1, 1, screen, "Your words are two different lengths, please press tab and try again.");
 					}
           else {
+						WordLadder test = new WordLadder(word1.length());
 						ArrayList<Node> output = new ArrayList<Node>();
 						for (int i = test.findPaths(word1, word2).size() - 1; i >= 0; i--) { //Displays word ladder from first to last word rather than backwards
 							output.add(test.findPaths(word1, word2).get(i));
