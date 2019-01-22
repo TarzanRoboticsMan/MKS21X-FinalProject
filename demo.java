@@ -90,12 +90,22 @@ public class demo {
           else {
 						WordLadder test = new WordLadder(word1.length());
 						ArrayList<Node> output = new ArrayList<Node>();
-						for (int i = test.findPaths(word1, word2).size() - 1; i >= 0; i--) { //Displays word ladder from first to last word rather than backwards
-							output.add(test.findPaths(word1, word2).get(i));
+						if (word1.length() > 3) {
+							for (int i = test.findPaths2(word1, word2).size() - 1; i >= 0; i--) { //Displays word ladder from first to last word rather than backwards
+								output.add(test.findPaths2(word1, word2).get(i));
+							}
+							putString(1, 1, screen, "Here is your word ladder:");
+	            putString(1, 2, screen, output.toString().substring(1, test.findPaths2(word1, word2).toString().length() - 1)); //Gets rid of brackets at end
+							putString(1, 5, screen, "Please press tab if you'd like to go again.");
 						}
-						putString(1, 1, screen, "Here is your word ladder:");
-            putString(1, 2, screen, output.toString().substring(1, test.findPaths(word1, word2).toString().length() - 1)); //Gets rid of brackets at end
-						putString(1, 5, screen, "Please press tab if you'd like to go again.");
+						if (word1.length() <= 3) {
+							for (int i = test.findPaths(word1, word2).size() - 1; i >= 0; i--) { //Displays word ladder from first to last word rather than backwards
+								output.add(test.findPaths(word1, word2).get(i));
+							}
+							putString(1, 1, screen, "Here is your word ladder:");
+	            putString(1, 2, screen, output.toString().substring(1, test.findPaths(word1, word2).toString().length() - 1)); //Gets rid of brackets at end
+							putString(1, 5, screen, "Please press tab if you'd like to go again.");
+						}
           }
         }
         else if (key.getKeyType() == KeyType.Tab) { //Allows user to input more words
