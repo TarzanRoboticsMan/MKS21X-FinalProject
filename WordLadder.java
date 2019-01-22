@@ -83,7 +83,13 @@ public class WordLadder{
       }
       return output1;
     }
+    long tStart = System.currentTimeMillis();
     while (findOverlap(list, list2, 1) == null) {
+      long tEnd = System.currentTimeMillis();
+			long millis = tEnd - tStart;
+      if (millis/1000 > 60) {
+        return output1;
+      }
       checkList = oneOff(list.get(idx)); //Loops through each value and checks words that are oneOff, creating a tree essentially
       for (int x = 0; x < checkList.size(); x++) {
         if (!list.contains(checkList.get(x))) {
