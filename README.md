@@ -56,6 +56,10 @@ Coby, 1/10
 Izzy, 1/10:
   Wrote findOverlap for future use and added test cases in the main to make sure it works with Array<Node>.
 
+Coby, 1/12:
+  Continued researching optimization ways, too complicated for this project. Tried to implement code to split the wordList.txt into many files, but realized coding all the accessing becomes a nightmare
+
+
 Izzy, 1/13:
   Created demo.java which uses lanterna to take user inputted words and then display all the words that are one letter off from the one they inputted. Will change to display word path once we finish writing that code, however.
 
@@ -65,8 +69,17 @@ Izzy, 1/14:
 Izzy, 1/16:
   Attempted to write code that would find a path between two words but only changing one word rather than both and meeting in the middle by adding a findMatch method. Also changed Node class by adding a constructor in which you can input a previous and changing the previous to a Node.
 
+Coby, 1/17:
+  I'm super dumb and scanner never actually worked. Didnt throw error on my laptop bc something else was broken so when I ran time code it just gave me broken time. Cried a little bit
+
+Coby, 1/19:
+  Reworked scanner code. Now it remakes the scanner each time. Way suboptimal, will not continue with this path. It just takes to long to recompile it so whatever time benefit may exist is lost.
+
 Izzy, 1/20:
   Almost completed findPath code from one direction, everything works except it doesn't display it correctly because the new previous for each node isn't stored for some reason.
+
+Coby, 1/21:
+  Optimization optimization. lots of things didn't work, but made the splitDict branch and managed to split up dict creating by word length to increase speed. Also backfilled some logs - suboptimal, but realized things were missing and would rather backfill than not have log
 
 Izzy 1/21:
   I got findPath to work going from one direction by fixing oneOff to not instantiate a new Node each time that has a null previous. I got user input through lanterna working. I realized our dictionary didn't have plural words, found a dictionary that was twice as big to use for our program. I then got our findPaths to work bi-directionally, greatly reducing the time it takes our program to run.
