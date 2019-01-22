@@ -13,7 +13,7 @@ public class Node {
     previous = prev;
   }
   public Node(){
-    
+
   }
   public String getValue() {
     return value;
