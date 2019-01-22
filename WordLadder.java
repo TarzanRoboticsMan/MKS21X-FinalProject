@@ -10,6 +10,12 @@ public class WordLadder{
   public ArrayList<Node> ends;
   private Dictionary dic = new Dictionary();
 
+  public WordLadder(){}
+  public WordLadder(int x){
+    dic = new Dictionary(x);
+  }
+
+
   public ArrayList<Node> oneOff(Node val) {
   //  val = val.toLowerCase();
     ArrayList<Node> output = new ArrayList<Node>();

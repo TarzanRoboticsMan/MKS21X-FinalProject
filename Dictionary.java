@@ -29,6 +29,30 @@ public class Dictionary{
       }
     }
   }
+  public Dictionary(int wordlength){
+    try{
+      File f = new File("wordList.txt");
+      Scanner dict = new Scanner(f);
+      while (dict.hasNext()) {
+        String next = dict.next();
+        if(next.length()==wordlength){
+          wordList.add(next.toLowerCase()); //Loops through and adds words from dictionary to an ArrayList
+        }
+      }
+    }catch(FileNotFoundException e){
+      System.out.println("File not found: wordList.txt");
+      System.exit(1);
+    }
+    tableOfContents = new int[26]; //Creating a list of the indexes at which the a words start, b words, c words, etx. to quickly access words
+    int x = 1;
+    tableOfContents[0] = 0;
+    for(int idx = 1; idx < wordList.size(); idx++) {
+      if(wordList.get(idx).charAt(0) != (wordList.get(idx - 1).charAt(0))){
+        tableOfContents[x] = idx;
+        x++;
+      }
+    }
+  }
   public boolean isWord(String value){
     //value = value.toLowerCase();
     if ("abcdefghijklmnopqrstuvwxy".indexOf(value.charAt(0)) != -1) { //Ensuring no special characters are inputted, which results in an error
