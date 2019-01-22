@@ -70,23 +70,4 @@ public class Dictionary{
     }
     return false;
   }
-
-  public boolean isWord2(String value){
-
-    //System.out.println(dict.findWithinHorizon(value,0));
-    //System.out.println();
-    try{
-      File f = new File("wordList.txt");
-      Scanner dict = new Scanner(f);
-      return (dict.findWithinHorizon(value,0) != null);
-    }
-    catch(FileNotFoundException e){
-      System.out.println("File not found: wordList.txt");
-      System.exit(1);
-    }
-    return false;//should never happen
-  }
-  public ArrayList<String> retrieve() { //To access wordList while testing
-    return wordList;
-  }
 }
