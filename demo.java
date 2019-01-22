@@ -87,9 +87,10 @@ public class demo {
 					else if (word1.length() != word2.length()) {
 						putString(1, 1, screen, "Your words are two different lengths, please press tab and try again.");
 					}
-		//			else if (test.findPaths(word1, word2).size() == 0) {
-		//				putString(1, 1, screen, "There are no possible word ladders, please press tab and try again.");
-		//			}
+					else if (test.findPaths(word1, word2).size() == 0) {
+						putString(1, 1, screen, "There are no possible word ladders as at least one of your words has no");
+						putString(1, 2, screen, "possible changes, please press tab and try again.");
+					}
           else {
 						ArrayList<Node> output = new ArrayList<Node>();
 						for (int i = test.findPaths(word1, word2).size() - 1; i >= 0; i--) { //Displays word ladder from first to last word rather than backwards

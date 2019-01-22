@@ -72,6 +72,9 @@ public class WordLadder{
     ArrayList<Node> checkList = list;
     ArrayList<Node> checkList2 = list2;
     int idx = 0;
+    if (list.size() == 0 || list2.size() == 0) {
+      return output1;
+    }
     if (findMatch(checkList, val2) != null) { //So that it doesn't add an extra step when there's only one step necessary
       Node current = findMatch(checkList, val2);
       while (current != null) {
@@ -119,6 +122,7 @@ public class WordLadder{
     System.out.println(test.findPaths("pie", "pie"));
     System.out.println(test.findPaths("pie", "die"));
     System.out.println(test.findPaths("bam", "pie"));
+    Node one = new Node("apples");
   //  System.out.println(test.findPaths("happy", "apple"));
   //  System.out.println(test.findPaths("shut", "hook"));
   //  System.out.println(test.findPaths("ear", "hut"));
