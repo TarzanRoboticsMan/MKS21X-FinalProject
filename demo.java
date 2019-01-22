@@ -28,7 +28,7 @@ public class demo {
 		Screen screen = new DefaultTerminalFactory().createScreen();
 		screen.startScreen();
     int idx = 1;
-    //WordLadder test = new WordLadder(); //Code moved to after words inputted
+    WordLadder test = new WordLadder();
     Dictionary dict = new Dictionary();
     String input = "";
     putString(1, 1, screen, "Please input word two words of the same length separated by a space: ");
@@ -87,17 +87,19 @@ public class demo {
 					else if (word1.length() != word2.length()) {
 						putString(1, 1, screen, "Your words are two different lengths, please press tab and try again.");
 					}
+		//			else if (test.findPaths(word1, word2).size() == 0) {
+		//				putString(1, 1, screen, "There are no possible word ladders, please press tab and try again.");
+		//			}
           else {
-						WordLadder test = new WordLadder(word1.length());
 						ArrayList<Node> output = new ArrayList<Node>();
 						for (int i = test.findPaths(word1, word2).size() - 1; i >= 0; i--) { //Displays word ladder from first to last word rather than backwards
 							output.add(test.findPaths(word1, word2).get(i));
 						}
 						putString(1, 1, screen, "Here is your word ladder:");
-	          putString(1, 2, screen, output.toString().substring(1, test.findPaths(word1, word2).toString().length() - 1)); //Gets rid of brackets at end
+            putString(1, 2, screen, output.toString().substring(1, test.findPaths(word1, word2).toString().length() - 1)); //Gets rid of brackets at end
 						putString(1, 5, screen, "Please press tab if you'd like to go again.");
-					}
-				}
+          }
+        }
         else if (key.getKeyType() == KeyType.Tab) { //Allows user to input more words
           screen.clear();
           idx = 1;

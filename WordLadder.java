@@ -4,13 +4,13 @@ import java.util.Scanner;
 import java.util.ArrayList;
 
 public class WordLadder{
-  private Dictionary dic;
+  private Dictionary dic = new Dictionary();
 
   public WordLadder(){}
   public WordLadder(int x){
     dic = new Dictionary(x);
   }
-  
+
   public ArrayList<Node> oneOff(Node val) {
     ArrayList<Node> output = new ArrayList<Node>();
     for (int x = 0; x < val.getValue().length(); x++) { //Going through all the possibilities one position at a time
