@@ -2,7 +2,7 @@ import java.util.ArrayList;
 
 public class Node {
   private String value;
-  private Node previous; //List of previouses as multiple paths might lead to the same word
+  private Node previous; 
 
   public Node(String value) {
     this.value = value;

@@ -10,10 +10,8 @@ public class WordLadder{
   public WordLadder(int x){
     dic = new Dictionary(x);
   }
-
-
+  
   public ArrayList<Node> oneOff(Node val) {
-  //  val = val.toLowerCase();
     ArrayList<Node> output = new ArrayList<Node>();
     for (int x = 0; x < val.getValue().length(); x++) { //Going through all the possibilities one position at a time
       for (int idx = 97; idx < 123; idx++) { //Switching it to every possible letter

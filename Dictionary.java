@@ -6,7 +6,6 @@ import java.util.ArrayList;
 public class Dictionary{
   private ArrayList<String> wordList = new ArrayList<String>();
   private int[] tableOfContents;
-  //public Scanner dict; //Her name is Scandra
 
   public Dictionary(){
     try{
@@ -36,7 +35,7 @@ public class Dictionary{
       while (dict.hasNext()) {
         String next = dict.next();
         if(next.length()==wordlength){
-          wordList.add(next.toLowerCase()); //Loops through and adds words from dictionary to an ArrayList
+          wordList.add(next.toLowerCase()); //Loops through and adds words from dictionary to an ArrayList based on length to save time
         }
       }
     }catch(FileNotFoundException e){
@@ -54,7 +53,6 @@ public class Dictionary{
     }
   }
   public boolean isWord(String value){
-    //value = value.toLowerCase();
     if ("abcdefghijklmnopqrstuvwxy".indexOf(value.charAt(0)) != -1) { //Ensuring no special characters are inputted, which results in an error
       for (int idx = tableOfContents[value.charAt(0) - 97]; idx < tableOfContents[value.charAt(0) - 96]; idx ++) { //Loops through wordList but only between the words that share the same first letter
         if (wordList.get(idx).equals(value)) {
